@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<center>
+   <head>
+	<style type="text/css">
+body,input
+	{
+	font-family:"Trebuchet ms",arial;font-size:0.9em;
+	color:#333;
+	}
+.change
+	{
+	border:1px solid #ddd;
+	padding:3px;
+	}
+.change ul
+	{
+	list-style:none;
+	}
+.change ul li
+	{
+	display:none;
+	}
+.change ul li.show
+	{
+	display:block;
+	}
+	</style>
+	<script type="text/javascript">
+
+function initChangeText()
+	{
+	var time = 10;
+	setInterval('changeText();',time*150);
+	}
+function changeText()
+	{
+	var divs_ = document.getElementsByTagName("div")
+	for (var i = 0;i<divs_.length;i++)
+		if (divs_[i].className == "change")
+			changeULText(divs_[i]);
+
+	}
+function changeULText(obj)
+	{
+	var ul = obj.getElementsByTagName("ul")[0];
+	var li = obj.getElementsByTagName("li");
+	for (var i=0;i<li.length;i++)
+		{
+		if (li[i].className == "show")
+			{
+			li[i].className = "";
+			li[(i+1)%li.length].className = "show";
+			return ;
+			}
+		}
+	}
+window.onload = initChangeText;
+	</script>
+      <script type = "text/javascript">
+          function displayNextImage() {
+              x = (x === images.length - 1) ? 0 : x + 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function displayPreviousImage() {
+              x = (x <= 0) ? images.length - 1 : x - 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function startTimer() {
+              setInterval(displayNextImage, 1500);
+          }
+
+          var images = [], x = -1;
+          images[0] = "images/wings.png";
+          images[1] = "images/ice.png";
+          images[2] = "images/breakfast1.png";
+          images[3] = "images/duffel.jpg";
+          images[4] = "images/chicken.jpg";
+          images[5] = "images/robot.jpg";
+          images[6] = "images/cow1.jpeg";
+          images[7] = "images/doge.png";
+          images[8] = "images/porcupine.png";
+      </script>
+   </head>
+
+   <body onload = "startTimer()">
+   <meta http-equiv="refresh" content="15; url=wait.html" />
+       <img id="img" src="images/gorilla.jpg">
+<div class="change">
+	<ul>
+		<li class="show">Gorilla</li>
+		<li>Wings</li>
+		<li>Ice</li>
+		<li>Breakfast</li>
+		<li>Duffel Bag</li>
+		<li>Bird</li>
+		<li>Robot</li>
+	</ul>
+</div>
+   </body>
+   </center>
+</html>
